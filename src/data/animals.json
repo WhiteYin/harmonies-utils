@@ -1,0 +1,378 @@
+[
+  {
+    "id": 1,
+    "name": "鳄鱼",
+    "enName": "gator",
+    "kind": "Water",
+    "scores": [4, 9, 15],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Water", "delta_q": -1, "height": 1 },
+      { "kind": "Tree", "delta_q": -2, "height": 3 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "鳐",
+    "enName": "ray",
+    "kind": "Water",
+    "scores": [4, 10, 16],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Mountain", "delta_q": -1, "height": 1 },
+      { "kind": "Mountain", "delta_q": -1, "delta_r": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "鱼",
+    "enName": "fish",
+    "kind": "Water",
+    "scores": [3, 6, 10, 16],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Mountain", "delta_q": -1, "height": 3 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "海獭",
+    "enName": "otter",
+    "kind": "Water",
+    "scores": [5, 10, 16],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 1 },
+      { "kind": "Tree", "delta_q": -2, "height": 1 }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "青蛙",
+    "enName": "frog",
+    "kind": "Water",
+    "scores": [2, 4, 6, 10, 15],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 1 }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "鸭子",
+    "enName": "duck",
+    "kind": "Water",
+    "scores": [2, 4, 8, 13],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Building", "delta_q": -1, "height": 2 }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "火烈鸟",
+    "enName": "flamingo",
+    "kind": "Water",
+    "scores": [4, 10, 16],
+    "pattern": [
+      { "kind": "Water", "animal": true, "height": 1 },
+      { "kind": "Field", "delta_q": -1, "height": 1 },
+      { "kind": "Field", "delta_q": -1, "delta_r": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "壁虎",
+    "enName": "gecko",
+    "kind": "Building",
+    "scores": [5, 10, 16],
+    "pattern": [
+      { "kind": "Building", "animal": true, "height": 2 },
+      { "kind": "Field", "delta_q": -1, "height": 1 },
+      { "kind": "Field", "delta_q": -2, "height": 1 }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "老鼠",
+    "enName": "mouse",
+    "kind": "Building",
+    "scores": [5, 10, 17],
+    "pattern": [
+      { "kind": "Building", "animal": true, "height": 2 },
+      { "kind": "Field", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Field", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "孔雀",
+    "enName": "peacock",
+    "kind": "Building",
+    "scores": [5, 10, 17],
+    "pattern": [
+      { "kind": "Building", "animal": true, "height": 2 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Water", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "松鼠",
+    "enName": "squirrel",
+    "kind": "Building",
+    "scores": [4, 9, 15],
+    "pattern": [
+      { "kind": "Building", "animal": true, "height": 2 },
+      { "kind": "Tree", "delta_q": -1, "height": 3 }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "刺猬",
+    "enName": "hedgehog",
+    "kind": "Building",
+    "scores": [5, 12],
+    "pattern": [
+      { "kind": "Building", "animal": true, "height": 2 },
+      { "kind": "Tree", "delta_q": -1, "height": 2 },
+      { "kind": "Tree", "delta_q": -1, "delta_r": 1, "height": 2 }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "蜜蜂",
+    "enName": "bumblebee",
+    "kind": "Tree",
+    "scores": [8, 18],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 2 },
+      { "kind": "Field", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Field", "delta_r": 1, "height": 1 },
+      { "kind": "Field", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "熊",
+    "enName": "bear",
+    "kind": "Tree",
+    "scores": [5, 11],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 1 },
+      { "kind": "Mountain", "delta_q": -1, "height": 2 },
+      { "kind": "Mountain", "delta_q": -1, "delta_r": 1, "height": 2 }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "兔子",
+    "enName": "rabbit",
+    "kind": "Tree",
+    "scores": [5, 10, 17],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 1 },
+      { "kind": "Building", "delta_q": -2, "height": 2 }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "鹦鹉",
+    "enName": "macaw",
+    "kind": "Tree",
+    "scores": [4, 9, 14],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 2 },
+      { "kind": "Water", "delta_q": -1, "height": 1 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "野猪",
+    "enName": "boar",
+    "kind": "Tree",
+    "scores": [4, 8, 13],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 2 },
+      { "kind": "Building", "delta_q": -1, "height": 2 }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "考拉",
+    "enName": "koala",
+    "kind": "Tree",
+    "scores": [3, 6, 10, 15],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 2 },
+      { "kind": "Tree", "delta_q": -1, "height": 1 }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "狼",
+    "enName": "wolf",
+    "kind": "Tree",
+    "scores": [4, 10, 16],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 3 },
+      { "kind": "Field", "delta_q": -1, "height": 1 },
+      { "kind": "Field", "delta_q": -1, "delta_r": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "笑翠鸟",
+    "enName": "kookaburra",
+    "kind": "Tree",
+    "scores": [5, 11, 18],
+    "pattern": [
+      { "kind": "Tree", "animal": true, "height": 3 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Water", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "企鹅",
+    "enName": "penguin",
+    "kind": "Mountain",
+    "scores": [4, 10, 16],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 1 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Water", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "蝙蝠",
+    "enName": "bat",
+    "kind": "Mountain",
+    "scores": [3, 6, 10, 15],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 3 }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "耳廓狐",
+    "enName": "fennec_fox",
+    "kind": "Mountain",
+    "scores": [4, 9, 16],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 1 },
+      { "kind": "Mountain", "delta_q": -1, "height": 1 },
+      { "kind": "Field", "delta_q": -2, "height": 1 }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "猕猴",
+    "enName": "macaque",
+    "kind": "Mountain",
+    "scores": [5, 11],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 2 },
+      { "kind": "Water", "delta_q": -1, "height": 1 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "鹰",
+    "enName": "eagle",
+    "kind": "Mountain",
+    "scores": [5, 11],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 3 },
+      { "kind": "Field", "delta_q": -1, "height": 1 }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "猫鼬",
+    "enName": "meerkat",
+    "kind": "Mountain",
+    "scores": [2, 5, 9, 14],
+    "pattern": [
+      { "kind": "Mountain", "animal": true, "height": 1 },
+      { "kind": "Field", "delta_q": -1, "height": 1 }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "乌鸦",
+    "enName": "raven",
+    "kind": "Field",
+    "scores": [4, 9],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Building", "delta_q": -1, "delta_r": 1, "height": 2 },
+      { "kind": "Building", "delta_q": 1, "height": 2 }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "羊驼",
+    "enName": "llama",
+    "kind": "Field",
+    "scores": [5, 12],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Field", "delta_q": -1, "height": 1 },
+      { "kind": "Mountain", "delta_q": -2, "height": 2 }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "北极狐",
+    "enName": "arctic_fox",
+    "kind": "Field",
+    "scores": [5, 10, 17],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "delta_r": 1, "height": 2 },
+      { "kind": "Tree", "delta_q": 1, "height": 2 }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "浣熊",
+    "enName": "raccoon",
+    "kind": "Field",
+    "scores": [6, 12],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Water", "delta_q": -1, "delta_r": 1, "height": 1 },
+      { "kind": "Water", "delta_r": 1, "height": 1 },
+      { "kind": "Water", "delta_q": 1, "height": 1 }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "瓢虫",
+    "enName": "ladybug",
+    "kind": "Field",
+    "scores": [2, 5, 8, 12, 17],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 1 }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "豹",
+    "enName": "panther",
+    "kind": "Field",
+    "scores": [5, 11],
+    "pattern": [
+      { "kind": "Field", "animal": true, "height": 1 },
+      { "kind": "Tree", "delta_q": -1, "height": 2 },
+      { "kind": "Tree", "delta_q": -2, "height": 2 }
+    ]
+  }
+]
