@@ -1,6 +1,8 @@
 'use client'
-import React, { useEffect, useMemo, useState } from 'react'
+import Tabs from '@/components/Tabs'
+import React, { useEffect, useState } from 'react'
 import { HexGrid, Layout, Hexagon, Text } from 'react-hexgrid'
+
 interface HexagonItem {
   q: number
   r: number
@@ -92,31 +94,31 @@ const CreateMap = () => {
       })
   }, [])
 
-  const hexagons = useMemo(() => {
-    // 创建一个5x5的六边形网格
-    const width = 5
-    const height = 5
-    const hexagons: HexagonItem[] = []
+  // const hexagons = useMemo(() => {
+  //   // 创建一个5x5的六边形网格
+  //   const width = 5
+  //   const height = 5
+  //   const hexagons: HexagonItem[] = []
 
-    for (let i = -2; i < width + 2; i++) {
-      // 从0开始
-      const isOdd = Math.abs(i % 2) === 1
-      const rowNum = isOdd ? height - 1 : height
-      const rStart = Math.ceil(-(i / 2))
-      for (let j = -2; j < rowNum; j++) {
-        // 偶数列竖向5个，奇数列竖向4个
-        const q = i
-        const r = rStart + j
-        const s = -q - r
-        hexagons.push({ q, r, s })
-      }
-    }
-    return hexagons
-  }, [])
+  //   for (let i = -2; i < width + 2; i++) {
+  //     // 从0开始
+  //     const isOdd = Math.abs(i % 2) === 1
+  //     const rowNum = isOdd ? height - 1 : height
+  //     const rStart = Math.ceil(-(i / 2))
+  //     for (let j = -2; j < rowNum; j++) {
+  //       // 偶数列竖向5个，奇数列竖向4个
+  //       const q = i
+  //       const r = rStart + j
+  //       const s = -q - r
+  //       hexagons.push({ q, r, s })
+  //     }
+  //   }
+  //   return hexagons
+  // }, [])
 
   return (
-    <div className="flex flex-col items-center h-screen p-4">
-      <div>
+    <div className="flex h-screen p-4">
+      <div className="flex-1/2 flex-grow-0">
         <h1 className="text-2xl font-bold mb-4">动物列表</h1>
         {/* 横向排列动物，单选框 */}
         <div className="flex flex-wrap">
@@ -140,42 +142,57 @@ const CreateMap = () => {
           ))}
         </div>
       </div>
-      <div>
-        <HexGrid width={600} height={400} viewBox="-60 -60 120 120">
-          <Layout size={{ x: 8, y: 8 }} flat={true} origin={{ x: -30, y: -15 }}>
-            {/* 渲染六边形 */}
-            {hexagons.map((hex, index) => {
-              // 判断是否是特殊坐标
-              const selectHex = checkHasHex(hex, points)
-              const isSpecialHex = !!selectHex
 
-              return (
-                <Hexagon
-                  key={index}
-                  q={hex.q}
-                  r={hex.r}
-                  s={hex.s}
-                  style={{
-                    fill: isSpecialHex ? filedTypeColorMap[selectHex.kind!] : 'white',
-                    stroke: '#666',
-                    strokeWidth: 1,
-                  }}
-                >
-                  {isSpecialHex && selectHex.height && selectHex.height > 1 ? (
-                    <Text x="0.3em" fill="black" stroke="none" style={{ fontSize: '0.5em' }}>
-                      {selectHex.height}
-                    </Text>
-                  ) : null}
-                  {isSpecialHex && selectHex.animal ? (
-                    <Text x="-0.3em" fill="red" stroke="none" style={{ fontSize: '0.5em' }}>
-                      *
-                    </Text>
-                  ) : null}
-                </Hexagon>
-              )
-            })}
-          </Layout>
-        </HexGrid>
+      <div className="flex-1/2">
+        <Tabs
+          items={[
+            {
+              key: 'details',
+              label: '详情',
+              children: (
+                <div className="border-2 border-dashed flex items-center justify-center h-full">
+                  <HexGrid width={600} height={400} viewBox="-60 -60 120 120">
+                    <Layout size={{ x: 8, y: 8 }} flat={true} origin={{ x: 0, y: 0 }}>
+                      {/* 渲染六边形 */}
+                      {points.map((hex, index) => {
+                        return (
+                          <Hexagon
+                            key={index}
+                            q={hex.q}
+                            r={hex.r}
+                            s={hex.s}
+                            style={{
+                              fill: filedTypeColorMap[hex.kind!],
+                              stroke: '#666',
+                              strokeWidth: 1,
+                            }}
+                          >
+                            {hex.height && hex.height > 1 ? (
+                              <Text x="0.3em" fill="black" stroke="none" style={{ fontSize: '0.5em' }}>
+                                {hex.height}
+                              </Text>
+                            ) : null}
+                            {hex.animal ? (
+                              <Text x="-0.3em" fill="red" stroke="none" style={{ fontSize: '0.5em' }}>
+                                *
+                              </Text>
+                            ) : null}
+                          </Hexagon>
+                        )
+                      })}
+                    </Layout>
+                  </HexGrid>
+                </div>
+              ),
+            },
+            {
+              key: 'layouts',
+              label: '布局',
+              children: <div>null</div>,
+            },
+          ]}
+          defaultActiveKey="details"
+        />
       </div>
     </div>
   )
@@ -183,7 +200,7 @@ const CreateMap = () => {
 
 export default CreateMap
 
-function checkHasHex(hex: HexagonItem, hexList: HexPoint[]): HexPoint | undefined {
-  // 检查 hex 是否在 hexList 中
-  return hexList.find((h) => h.q === hex.q && h.r === hex.r && h.s === hex.s)
-}
+// function checkHasHex(hex: HexagonItem, hexList: HexPoint[]): HexPoint | undefined {
+//   // 检查 hex 是否在 hexList 中
+//   return hexList.find((h) => h.q === hex.q && h.r === hex.r && h.s === hex.s)
+// }
