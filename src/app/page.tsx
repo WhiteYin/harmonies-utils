@@ -52,7 +52,7 @@ const CreateMap = () => {
   const handleAnimalChange = (id: number) => {
     setSelectedAnimal(id)
     // 获取动物列表
-    fetch(`/api/animal-list/${id}`)
+    fetch(`/api/animal?id=${id}`)
       .then((response) => response.json())
       .then((data: Animal) => {
         const { pattern } = data
