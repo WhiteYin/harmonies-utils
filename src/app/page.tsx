@@ -1,33 +1,15 @@
 'use client'
+import AnimalGrid from '@/components/AnimalGrid'
+import AnimalLayout from '@/components/AnimalLayout'
 import Tabs from '@/components/Tabs'
 import React, { useEffect, useState } from 'react'
-import { HexGrid, Layout, Hexagon, Text } from 'react-hexgrid'
 
 interface HexagonItem {
   q: number
   r: number
   s: number
 }
-interface HexPoint extends Pattern, HexagonItem {}
-enum FieldType {
-  // 山丘
-  Mountain = 'Mountain',
-  // 平原
-  Field = 'Field',
-  // 树
-  Tree = 'Tree',
-  // 水
-  Water = 'Water',
-  // 建筑
-  Building = 'Building',
-}
-const filedTypeColorMap: Record<string, string> = {
-  [FieldType.Mountain]: '#757273',
-  [FieldType.Field]: '#E3AF23',
-  [FieldType.Tree]: '#868B27',
-  [FieldType.Water]: '#247D8C',
-  [FieldType.Building]: '#B2313F',
-}
+export interface HexPoint extends Pattern, HexagonItem {}
 
 interface Pattern {
   kind: string
@@ -48,7 +30,7 @@ interface Animal {
 
 const CreateMap = () => {
   const [animalList, setAnimalList] = useState<Animal[]>([])
-  const [points, setPoints] = useState<HexPoint[]>([])
+  const [points, setPoints] = useState<HexPoint[]>()
   const [selectedAnimal, setSelectedAnimal] = useState<number>()
 
   const handleAnimalChange = (id: number) => {
@@ -118,7 +100,7 @@ const CreateMap = () => {
 
   return (
     <div className="flex h-screen p-4">
-      <div className="flex-1/2 flex-grow-0">
+      <div className="flex-1 flex-shrink-0">
         <h1 className="text-2xl font-bold mb-4">动物列表</h1>
         {/* 横向排列动物，单选框 */}
         <div className="flex flex-wrap">
@@ -143,7 +125,11 @@ const CreateMap = () => {
         </div>
       </div>
 
-      <div className="flex-1/2">
+      <div
+        style={{
+          flexBasis: '800px',
+        }}
+      >
         <Tabs
           items={[
             {
@@ -151,44 +137,14 @@ const CreateMap = () => {
               label: '详情',
               children: (
                 <div className="border-2 border-dashed flex items-center justify-center h-full">
-                  <HexGrid width={600} height={400} viewBox="-60 -60 120 120">
-                    <Layout size={{ x: 8, y: 8 }} flat={true} origin={{ x: 0, y: 0 }}>
-                      {/* 渲染六边形 */}
-                      {points.map((hex, index) => {
-                        return (
-                          <Hexagon
-                            key={index}
-                            q={hex.q}
-                            r={hex.r}
-                            s={hex.s}
-                            style={{
-                              fill: filedTypeColorMap[hex.kind!],
-                              stroke: '#666',
-                              strokeWidth: 1,
-                            }}
-                          >
-                            {hex.height && hex.height > 1 ? (
-                              <Text x="0.3em" fill="black" stroke="none" style={{ fontSize: '0.5em' }}>
-                                {hex.height}
-                              </Text>
-                            ) : null}
-                            {hex.animal ? (
-                              <Text x="-0.3em" fill="red" stroke="none" style={{ fontSize: '0.5em' }}>
-                                *
-                              </Text>
-                            ) : null}
-                          </Hexagon>
-                        )
-                      })}
-                    </Layout>
-                  </HexGrid>
+                  <AnimalGrid points={points} />
                 </div>
               ),
             },
             {
               key: 'layouts',
               label: '布局',
-              children: <div>null</div>,
+              children: <div>{selectedAnimal ? <AnimalLayout id={selectedAnimal}></AnimalLayout> : null}</div>,
             },
           ]}
           defaultActiveKey="details"
