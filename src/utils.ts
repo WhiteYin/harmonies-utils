@@ -134,19 +134,23 @@ class HexagonPlanner {
   // 获取候选位置
   private getCandidates(grid: Map<string, Hexagon>, node: ReferenceNode): [number, number][] {
     if (node.animal) {
-      return Array.from(grid.values())
-        .filter((h) => !h.animal)
-        .flatMap(
-          (h) =>
-            [
-              [h.q + 1, h.r],
-              [h.q + 1, h.r - 1],
-              [h.q, h.r - 1],
-              [h.q - 1, h.r],
-              [h.q - 1, h.r + 1],
-              [h.q, h.r + 1],
-            ] as [number, number][]
-        )
+      return (
+        Array.from(grid.values())
+          .filter((h) => !h.animal)
+          .flatMap(
+            (h) =>
+              [
+                [h.q + 1, h.r],
+                [h.q + 1, h.r - 1],
+                [h.q, h.r - 1],
+                [h.q - 1, h.r],
+                [h.q - 1, h.r + 1],
+                [h.q, h.r + 1],
+              ] as [number, number][]
+          )
+          // 过滤掉已经放置的动物节点
+          .filter(([q, r]) => !grid.has(`${q},${r}`))
+      )
     }
     return Array.from(grid.values())
       .filter((h) => h.animal)
@@ -157,11 +161,15 @@ class HexagonPlanner {
   private postProcess(): Hexagon[][] {
     // 去重（基于规范化坐标）
     const seen = new Set<string>()
-    return this.solutions.filter((solution) => {
-      const normalized = this.normalizeSolution(solution)
-      const key = JSON.stringify(normalized)
-      return !seen.has(key) && seen.add(key)
-    })
+    return this.solutions
+      .filter((solution) => {
+        const normalized = this.normalizeSolution(solution)
+        const key = JSON.stringify(normalized)
+        return !seen.has(key) && seen.add(key)
+      })
+      .sort((a, b) => {
+        return a.length - b.length
+      })
   }
 
   // 规范化解决方案表示
